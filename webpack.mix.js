@@ -1,7 +1,5 @@
 const mix = require('laravel-mix');
 const ASSET_PATH = process.env.ASSET_PATH || '/';
-
-require('laravel-mix-polyfill');
 require('laravel-mix-merge-manifest');
 
 mix
@@ -10,9 +8,6 @@ mix
   .mergeManifest();
 
 mix
-  .babelConfig({
-    plugins: ['@babel/plugin-syntax-dynamic-import'],
-  })
   .webpackConfig({
     output: {
       publicPath: ASSET_PATH,
@@ -22,7 +17,7 @@ mix
     },
     resolve: {
       alias: {
-        '@images': path.resolve(__dirname, 'resources/images/'),
+        '@images': path.resolve(__dirname, 'resources/images'),
         '@components': path.resolve(__dirname, 'resources/js/components'),
         '@mixins': path.resolve(__dirname, 'resources/js/mixins'),
       },
