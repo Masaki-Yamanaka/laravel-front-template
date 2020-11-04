@@ -10,7 +10,17 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod-all": "concurrently \"npm --section=backend run prod\" \"npm --section=frontend run prod\"  --kill-others-on-fail",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "lint:css": "stylelint resources/sass/**/*.scss",
+        "lint:css:fix": "stylelint resources/sass/**/*.scss --fix",
+        "lint:js": "eslint resources/js/**/*.{js,vue}",
+        "lint:js:fix": "eslint resources/js/**/*.{js,vue} --fix",
+        "format:js": "prettier resources/js/**/*.{js,vue} -c",
+        "format:css": "prettier resources/sass/**/*.scss -c",
+        "format:js:fix": "prettier resources/js/**/*.{js,vue} -w",
+        "format:css:fix": "prettier resources/sass/**/*.scss -w",
+        "blade": "blade-formatter resources/views/**/*.blade.php -c",
+        "blade:fix": " blade-formatter resources/views/**/*.blade.php -w"
     },
     "devDependencies": {
         "axios": "^0.19",
